@@ -38,9 +38,7 @@ function scene:createScene(event)
 		-- body
 		local row = event.target
 		local label=row:getLabel( )
-		if (label=='B') then
 			storyboard.gotoScene( "screen" ,{effect="zoomInOutFade", time=500, params={label=label}})
-		end
 	end
 
 

@@ -9,11 +9,6 @@ local BlurredImage 	= require( "mod.imageblur" )
 local ScreenBlur 	= require( "mod.screenblur" )
 
 
-local bluerose=audio.loadSound("blue_rose.mp3" )
-local banana=audio.loadSound("banana.mp3" )
-local bear=audio.loadSound("bear.mp3" )
-local brinjal=audio.loadSound("brinjal.mp3" )
-
 function scene:createScene(event)
 
 	local screenGroup = self.view
@@ -25,11 +20,34 @@ function scene:createScene(event)
 	x=0
 	overlayflag=0
 	local alphabets={
-		{title="B",images={"banana1.jpg","bear.jpg","bluerose.jpg","brinjal.png"},audios={"banana.mp3","bear.mp3","bluerose.mp3","brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
-		{title="C",images={"banana.jpg","bear.jpg","bluerose.jpg","brinjal.png"},audios={"banana.mp3","bear.mp3","bluerose.mp3","brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
-		{title="D",images={"banana.jpg","bear.jpg","bluerose.jpg","brinjal.png"},audios={"banana.mp3","bear.mp3","bluerose.mp3","brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
-		{title="E",images={"banana.jpg","bear.jpg","bluerose.jpg","brinjal.png"},audios={"banana.mp3","bear.mp3","bluerose.mp3","brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="A",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="B",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="C",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="D",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="E",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="F",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="G",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="H",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="I",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="J",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="K",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="L",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="M",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="N",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="O",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="P",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="Q",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="R",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="S",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="T",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="U",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="V",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="W",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="X",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="Y",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
+		{title="Z",images={"images/banana.jpg","images/bear.jpg","images/bluerose.jpg","images/brinjal.png"},audios={"sounds/banana.mp3","sounds/bear.mp3","sounds/blue_rose.mp3","sounds/brinjal.mp3"},label={"Banana", "Bear", "Blue Rose", "Brinjal"}},
 	}
+
 	function abc( ... )
 			-- body
 		for i=1,#alphabets do
@@ -43,10 +61,14 @@ function scene:createScene(event)
 			end
 		end
 	end
+local banana=audio.loadSound( alphabets[abc()].audios[1] )
+local bluerose=audio.loadSound(alphabets[abc()].audios[2] )
+local bear=audio.loadSound(alphabets[abc()].audios[3] )
+local brinjal=audio.loadSound(alphabets[abc()].audios[4] )
 	abc()
 	print(x)
-	print(alphabets[abc()].images[1])
-	local rect = BlurredImage:new(screenGroup, "banana.jpg", 250,250, 10,5 )
+	print(alphabets[abc()].images[1].."hello")
+	local rect = BlurredImage:new(screenGroup, alphabets[abc()].images[1], 250,250, 10,5 )
 	rect.xScale=.5
 	rect.yScale=.5
 	rect.x=display.contentCenterX-80
@@ -64,10 +86,10 @@ function scene:createScene(event)
 		cover:setFillColor( 0 )
 		cover.alpha=.6
 		over=display.newRoundedRect( group, display.contentCenterX, display.contentCenterY, display.contentWidth*.9, display.contentHeight*.6, 20 )
-		img=display.newImage( group, "banana.jpg", over.x,over.y-20 )
+		img=display.newImage( group, alphabets[abc()].images[1], over.x,over.y-20 )
 		img.width=over.width*.5
 		img.height=over.height*.5
-		image=display.newText( group, "Banana", img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
+		image=display.newText( group, alphabets[abc()].label[1], img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
 		image:setFillColor( 80/255 )
 
 		group:addEventListener( "tap", function( ... )
@@ -86,7 +108,7 @@ function scene:createScene(event)
 
 
 	-- screenGroup:insert( rect )
-	local rect1 = BlurredImage:new(screenGroup, "bluerose.jpg", 250,250, 10,5 )
+	local rect1 = BlurredImage:new(screenGroup, alphabets[abc()].images[2], 250,250, 10,5 )
 	rect1.xScale=.5
 	rect1.yScale=.5
 	rect1.x=display.contentCenterX-80
@@ -105,10 +127,10 @@ function scene:createScene(event)
 		cover:setFillColor( 0 )
 		cover.alpha=.6
 		over=display.newRoundedRect( group, display.contentCenterX, display.contentCenterY, display.contentWidth*.9, display.contentHeight*.6, 20 )
-		img=display.newImage( group, "bluerose.jpg", over.x,over.y-20 )
+		img=display.newImage( group, alphabets[abc()].images[2], over.x,over.y-20 )
 		img.width=over.width*.5
 		img.height=over.height*.5
-		image=display.newText( group, "Blue Rose", img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
+		image=display.newText( group, alphabets[abc()].label[2], img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
 		image:setFillColor( 80/255 )
 		screenGroup:insert( group )
 
@@ -123,7 +145,7 @@ function scene:createScene(event)
 	end
 	rect1:addEventListener( "tap", oer1 )
 	-- screenGroup:insert( rect )
-	local rect3 = BlurredImage:new(screenGroup, "bear.jpg", 250,250, 10,5 )
+	local rect3 = BlurredImage:new(screenGroup, alphabets[abc()].images[3], 250,250, 10,5 )
 	rect3.xScale=.5
 	rect3.yScale=.5
 	rect3.x=display.contentCenterX+80
@@ -141,10 +163,10 @@ function scene:createScene(event)
 		cover:setFillColor( 0 )
 		cover.alpha=.6
 		over=display.newRoundedRect( group, display.contentCenterX, display.contentCenterY, display.contentWidth*.9, display.contentHeight*.6, 20 )
-		img=display.newImage( group, "bear.jpg", over.x,over.y-20 )
+		img=display.newImage( group, alphabets[abc()].images[3], over.x,over.y-20 )
 		img.width=over.width*.5
 		img.height=over.height*.5
-		image=display.newText( group, "Bear", img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
+		image=display.newText( group, alphabets[abc()].label[3], img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
 		image:setFillColor( 80/255 )
 
 		group:addEventListener( "tap", function( ... )
@@ -156,7 +178,7 @@ function scene:createScene(event)
 	end
 	rect3:addEventListener( "tap", oer2 )
 	-- screenGroup:insert( rect )
-	local rect4 = BlurredImage:new(screenGroup, "brinjal.png", 250,250, 10,5 )
+	local rect4 = BlurredImage:new(screenGroup, alphabets[abc()].images[4], 250,250, 10,5 )
 	rect4.xScale=.5
 	rect4.yScale=.5
 	rect4.x=display.contentCenterX+80
@@ -174,10 +196,10 @@ function scene:createScene(event)
 		cover:setFillColor( 0 )
 		cover.alpha=.6
 		over=display.newRoundedRect( group, display.contentCenterX, display.contentCenterY, display.contentWidth*.9, display.contentHeight*.6, 20 )
-		img=display.newImage( group, "brinjal.png", over.x,over.y-20 )
+		img=display.newImage( group, alphabets[abc()].images[4], over.x,over.y-20 )
 		img.width=over.width*.5
 		img.height=over.height*.5
-		image=display.newText( group, "Brinjal", img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
+		image=display.newText( group, alphabets[abc()].label[4], img.x, img.y+over.height*.3, "KeepCalm-Medium", 30 )
 		image:setFillColor( 80/255 )
 
 		group:addEventListener( "tap", function( ... )
