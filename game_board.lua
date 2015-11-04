@@ -11,14 +11,16 @@ function scene:createScene(event)
 
 
 	local group = self.view
+    local params = event.params
 	background=display.newImage("board.png", display.contentWidth*.5,display.contentHeight*.5-35)
 	background.width=270
-	background.height=270
+	background.height=360
 	local backButton={}
 	local backButton1={}
 	local options, refresh
 	local circle1,circle,wonText=0,0,0
 	local co,c = 0,0
+	local score=0
 	local coo = 0
 	local x = 17
 	local y = 12
@@ -26,8 +28,8 @@ function scene:createScene(event)
 	local alphabet={"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"}
 	local r1,r2,r3,r4,r5,c1,c2,c3,c4,c5,x1,x2=false,false,false,false,false,false,false,false,false,false,false,false
 
-	local box= display.newRect( display.contentWidth*0.5, 400, 200, 30 )
-	local myText = display.newText( "Select an Alphabet", display.contentWidth*0.5, 400, "KeepCalm-Medium", 16 )
+	local box= display.newRect( display.contentWidth*0.5, 450, 200, 30 )
+	local myText = display.newText( "Select an Alphabet", display.contentWidth*0.5, 450, "KeepCalm-Medium", 16 )
 	myText:setFillColor( 1, 0, 0 )
 	group:insert(background)
 	group:insert(box)
@@ -38,7 +40,7 @@ function scene:createScene(event)
 		-- body
 		local row = event.target
 		local label=row:getLabel( )
-			storyboard.gotoScene( "screen" ,{effect="zoomInOutFade", time=500, params={label=label}})
+			storyboard.gotoScene( params.mode ,{effect="zoomInOutFade", time=500, params={label=label,score=score}})
 	end
 
 
@@ -66,6 +68,20 @@ function scene:createScene(event)
 		y=y+49
 		x=17
 	end
+	backButton[26]=widget.newButton{
+		width = 50,
+		height = 48,
+		id=co,
+		label=(alphabet[26]),
+		onRelease = onBackRelease,
+    	defaultFile = "but.png",
+		fontSize = 16,
+		font="KeepCalm-Medium",
+		left = 21+x+50+48,
+		top = 87+y,
+		labelColor = { default={ 55/255 }, over={ 245/255 } }
+	}
+	group:insert(backButton[26])
 
 	function action( ... )
 		-- body

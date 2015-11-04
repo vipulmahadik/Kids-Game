@@ -4,6 +4,7 @@ local storyboard = require ("storyboard")
 local scene = storyboard.newScene()
 
 
+display.setStatusBar( display.TranslucentStatusBar )
 local Helper 		= require( "mod.helper" )
 local BlurredImage 	= require( "mod.imageblur" )
 local ScreenBlur 	= require( "mod.screenblur" )
@@ -21,13 +22,13 @@ function scene:createScene(event)
 	hard = display.newImage( "button.png", display.contentWidth*.5,display.contentHeight*.5+80)
 	hardtextext = display.newText( "Hard", hard.x,hard.y ,"KeepCalm-Medium", 20 )
 	function easyf(  )
-		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500})
+		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500,params={mode="screen"}})
 	end
 	function mediumf(  )
-		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500})
+		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500,params={mode="intermediate"}})
 	end
 	function hardf(  )
-		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500})
+		storyboard.gotoScene( "game_board" ,{effect="zoomInOutFade", time=500,params={mode="expert"}})
 	end
 	easy:addEventListener( "tap", easyf )
 	medium:addEventListener( "tap", mediumf )
